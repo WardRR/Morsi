@@ -1,13 +1,27 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
+import model.MorseTranslator;
 
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
+public class Main {
+    public static void main(String[] args) {
+
+        MorseTranslator translator = new MorseTranslator();
+
+        String test1 = "SOS";
+        String test2 = "ČUVAJ SE RUSKE PODMORNICE";
+        String test3 = "Sara voli loft kafić.";
+
+        String rezultat1 = translator.translateTextToMorse(test1, " ");
+        String rezutat2 = translator.translateTextToMorse(test2, "/");
+        String rezutat3 = translator.translateTextToMorse(test3, "|");
+
+        System.out.println("--- MORSI TEST ---");
+        System.out.println("Unos 1: " + test1);
+        System.out.println("Morse 1: " + rezultat1);
+        System.out.println("---------------------------------");
+        System.out.println("Unos 2: " + test2);
+        System.out.println("Morse 2: " + rezutat2);
+        System.out.println("---------------------------------");
+        System.out.println("Unos 3: " + test3);
+        System.out.println("Morse 3: " + rezutat3);
+
     }
 }
