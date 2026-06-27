@@ -78,7 +78,8 @@ public class MorseTranslator {
             char symbol = text.charAt(i);
 
             if (symbol == ' '){
-                String wordSeparator = separator + separator + separator;
+                String wordSeparator = separator + separator;
+                // after every word one separator is placed, so the official space between words will be 1+2 separators
                 result.append(wordSeparator);
                 continue;
             }
@@ -98,6 +99,43 @@ public class MorseTranslator {
 
     }
 
+    // KONZULTACIJE!!!!
 
+    public String translateMorseToText(String morseCode, String separator){
+        if (morseCode == null || morseCode.trim().isEmpty()){
+            return "";
+        }
+
+        StringBuilder result = new StringBuilder();
+
+        String[] tokens = morseCode.split(separator);
+        int emptyTokenCount = 0;
+
+        for (int i = 0; i < tokens.length; i++) {
+            String token = tokens[i].trim();
+
+            if (token.isEmpty()) {
+                emptyTokenCount++;
+
+                if (emptyTokenCount == 2){
+                    result.append(" ");
+                    emptyTokenCount = 0;
+                }
+                continue;
+            }else {
+                emptyTokenCount = 0;
+            }
+
+            if (morseToTextMap.containsKey(token)) {
+                Character convertedMorseCode = morseToTextMap.get(token);
+                result.append(convertedMorseCode);
+            }else {
+                result.append("?");
+            }
+        }
+    return result.toString().trim();
+    }
+
+    // SEPARATOR ZA SVAKO ODVAJANJE!
 
 }
