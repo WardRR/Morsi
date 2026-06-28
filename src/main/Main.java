@@ -1,3 +1,5 @@
+package main;
+
 import model.MorseTranslator;
 import view.MainFrame;
 

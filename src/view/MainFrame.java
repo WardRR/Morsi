@@ -2,6 +2,8 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MainFrame extends JFrame {
 
@@ -40,6 +42,15 @@ public class MainFrame extends JFrame {
         gbc.insets = new Insets(40, 10, 10, 10);
         gbc.gridy = 2;
         add(buttonStart, gbc);
-    }
 
+        buttonStart.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                LoginFrame loginWindow = new LoginFrame();
+                loginWindow.setVisible(true);
+            }
+        });
+
+    }
 }
